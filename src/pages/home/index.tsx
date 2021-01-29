@@ -1,6 +1,6 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Table from "components/Table";
+import Table from "components/CustomTable";
 import Toolbar from "components/Toolbar";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import { Button, Grid, Typography } from "@material-ui/core";
