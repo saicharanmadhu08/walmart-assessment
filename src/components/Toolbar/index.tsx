@@ -59,6 +59,7 @@ function Toolbar(props: ToolbarProps) {
           variant="contained"
           startIcon={<DeleteForeverIcon />}
           onClick={handleDeleteClick}
+          disabled={!numberSelected}
         >
           Delete
         </Button>
