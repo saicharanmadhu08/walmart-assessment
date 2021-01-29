@@ -5,7 +5,7 @@
       "nutritionInfo": {
         "calories": 437,
         "fat": 18,
-        "carb": 63,
+        "carbs": 63,
         "protein": 4
       }
     },
@@ -14,7 +14,7 @@
       "nutritionInfo": {
         "calories": 360,
         "fat": 19,
-        "carb": 50,
+        "carbs": 50,
         "protein": 37
       }
     }

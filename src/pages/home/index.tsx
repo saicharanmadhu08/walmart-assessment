@@ -1,13 +1,15 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import Table from "components/table";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Table from "components/Table";
 import Toolbar from "components/Toolbar";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import { createStyles, makeStyles } from "@material-ui/core/styles";
 import { Button, Grid, Typography } from "@material-ui/core";
 import ReplayIcon from "@material-ui/icons/Replay";
 import { getNutritionData } from "state/nutritionData/actions";
+import { StateI } from "state/initialState";
+import { headCells } from "./constants";
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     resetButton: {
       backgroundColor: "teal",
@@ -19,6 +21,8 @@ const useStyles = makeStyles((theme: Theme) =>
 function Home() {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const { nutritionData } = useSelector((state: StateI) => state);
+  const [selectedRows, setSelectedRows] = useState<string[]>([]);
 
   useEffect(() => {
     dispatch(getNutritionData());
@@ -47,11 +51,19 @@ function Home() {
       </Grid>
       <Grid item xs={9}>
         <Toolbar
-          numberSelected={0}
+          numberSelected={selectedRows.length}
           handleAddNewClick={handleAddNewClick}
           handleDeleteClick={handleDeleteClick}
         />
-        <Table />
+        <Table
+          selected={selectedRows}
+          setSelected={setSelectedRows}
+          headCells={headCells}
+          rows={nutritionData.map((item) => ({
+            name: item.desert,
+            ...item.nutritionInfo,
+          }))}
+        />
       </Grid>
     </Grid>
   );

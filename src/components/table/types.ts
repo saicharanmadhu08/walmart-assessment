@@ -7,7 +7,7 @@ export interface HeadCellI {
   numeric: boolean;
 }
 
-export interface EnhancedTableI {
+export interface TableHeaderProps {
   classes: any;
   numSelected: number;
   onRequestSort: (
@@ -18,6 +18,7 @@ export interface EnhancedTableI {
   order: Order;
   orderBy: string;
   rowCount: number;
+  headCells: Array<HeadCellI>;
 }
 
 export interface DataI {
@@ -26,4 +27,11 @@ export interface DataI {
   fat: number;
   name: string;
   protein: number;
+}
+
+export interface CustomTableProps {
+  headCells: Array<HeadCellI>;
+  rows: Array<DataI>;
+  selected: string[];
+  setSelected: (item: string[]) => void;
 }

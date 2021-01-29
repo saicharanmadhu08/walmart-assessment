@@ -3,15 +3,15 @@ export interface StateI {
 }
 
 export interface NutritionDataI {
-  name: string;
+  desert: string;
   nutritionInfo: NutritionInfoDataI;
 }
 
 export interface NutritionInfoDataI {
   calories: number;
   fat: number;
-  carb: number;
-  protien: number;
+  carbs: number;
+  protein: number;
 }
 
 const initialState: StateI = {

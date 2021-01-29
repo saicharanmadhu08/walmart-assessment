@@ -15,17 +15,16 @@ export function getNutritionData() {
     client
       .query({
         query: gql`
-          query nutritionData {
-            desert
-            nutritionInfo {
-              calories
-              fat
-              carb
-              protein
+          query {
+            allData {
+              desert
+              nutritionInfo
             }
-          },
+          }
         `,
       })
-      .then((result) => console.log(result));
+      .then((result) => {
+        dispatch(setNutritionData(result.data.allData));
+      });
   };
 }
