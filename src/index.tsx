@@ -1,13 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { applyMiddleware, createStore } from "redux";
+import thunk from "redux-thunk";
+import initialState from "state/initialState";
+import rootReducer from "state/rootReducer";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { ApolloProvider } from "@apollo/client";
+import { client } from "state/helpers";
+
+const store = createStore(rootReducer, initialState, applyMiddleware(thunk));
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <ApolloProvider client={client}>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </ApolloProvider>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
