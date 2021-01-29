@@ -170,7 +170,7 @@ function CustomTable(props: CustomTableProps) {
   const isSelected = (name: string) => selected.indexOf(name) !== -1;
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} data-testid="custom-table">
       <Paper className={classes.paper}>
         <TableContainer>
           <Table className={classes.table} size="medium">
@@ -192,6 +192,7 @@ function CustomTable(props: CustomTableProps) {
 
                   return (
                     <TableRow
+                      data-testid="table-row"
                       hover
                       onClick={(event) => handleClick(event, row.name)}
                       role="checkbox"
@@ -202,6 +203,7 @@ function CustomTable(props: CustomTableProps) {
                     >
                       <TableCell padding="checkbox">
                         <Checkbox
+                          data-testid="table-row-checkbox"
                           checked={isItemSelected}
                           inputProps={{ "aria-labelledby": labelId }}
                         />

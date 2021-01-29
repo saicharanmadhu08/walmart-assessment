@@ -63,7 +63,7 @@ function AddNewItem(props: AddNewItemProps) {
     <div>
       <Dialog fullScreen={fullScreen} open={true} onClose={handleClose}>
         <DialogTitle id="responsive-dialog-title">
-          <Grid container justify="flex-end">
+          <Grid container justify="flex-end"  data-testid="add-new-popup">
             <Grid>
               <IconButton aria-label="delete" onClick={handleClose}>
                 <CloseIcon />
@@ -93,6 +93,7 @@ function AddNewItem(props: AddNewItemProps) {
                   value={formValues[field.name]}
                   onChange={handleInputChange}
                   type={field.type}
+                  data-testid={`add-new-input-${field.name}`}
                 />
               </Box>
             ))}
@@ -101,6 +102,7 @@ function AddNewItem(props: AddNewItemProps) {
         <DialogActions className={classes.actions}>
           <Button
             fullWidth
+            data-testid="submit-button"
             variant="contained"
             onClick={() => handleSubmit(formValues)}
             color="primary"

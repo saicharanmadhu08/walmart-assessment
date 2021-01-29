@@ -7,7 +7,7 @@ import {
   DELETE_NUTRITIONS,
 } from "./actionTypes";
 
-function setNutritionData(payload: Array<NutritionDataI>) {
+export function setNutritionData(payload: Array<NutritionDataI>) {
   return {
     type: SET_NUTRITION_DATA,
     payload,
@@ -16,7 +16,7 @@ function setNutritionData(payload: Array<NutritionDataI>) {
 
 export function getNutritionData() {
   return (dispatch: any) => {
-    client
+    return client
       .query({
         query: gql`
           query {
@@ -34,6 +34,7 @@ export function getNutritionData() {
 }
 
 export function addNewNutritionRecord(payload: NutritionDataI) {
+  console.log("kgfgskgjfs", payload);
   return (dispatch: any) => {
     dispatch({
       type: ADD_NEW_NUTRITION_RECORD,

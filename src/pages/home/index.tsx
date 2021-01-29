@@ -52,6 +52,7 @@ function Home() {
   }
 
   function handleDialogBoxSubmit(values: any) {
+    console.log("kgfgskgjfs", values);
     dispatch(
       addNewNutritionRecord({
         desert: values.name,
@@ -81,12 +82,13 @@ function Home() {
       <Grid container justify="center">
         <Grid container item xs={9} justify="space-between" alignItems="center">
           <Grid>
-            <Typography variant="h4" gutterBottom>
+            <Typography variant="h4" gutterBottom data-testid="page-heading">
               Nutrition List
             </Typography>
           </Grid>
           <Grid>
             <Button
+              data-testid="reset-button"
               variant="contained"
               className={classes.resetButton}
               endIcon={<ReplayIcon />}

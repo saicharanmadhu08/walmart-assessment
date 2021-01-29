@@ -34,6 +34,7 @@ function Toolbar(props: ToolbarProps) {
       xs={12}
       justify="space-between"
       alignItems="center"
+      data-testid="toolbar"
     >
       <Grid>
         <Typography
@@ -51,6 +52,7 @@ function Toolbar(props: ToolbarProps) {
           variant="contained"
           startIcon={<AddIcon />}
           onClick={handleAddNewClick}
+          data-testid="add-new-button"
         >
           Add New
         </Button>
@@ -60,6 +62,7 @@ function Toolbar(props: ToolbarProps) {
           startIcon={<DeleteForeverIcon />}
           onClick={handleDeleteClick}
           disabled={!numberSelected}
+          data-testid="delete-button"
         >
           Delete
         </Button>

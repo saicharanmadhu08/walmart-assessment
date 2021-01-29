@@ -1,16 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { applyMiddleware, createStore } from "redux";
-import thunk from "redux-thunk";
-import initialState from "state/initialState";
-import rootReducer from "state/rootReducer";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ApolloProvider } from "@apollo/client";
 import { client } from "state/helpers";
+import configureStore from "configureStore";
 
-const store = createStore(rootReducer, initialState, applyMiddleware(thunk));
+const store = configureStore();
 
 ReactDOM.render(
   <ApolloProvider client={client}>
